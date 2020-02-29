@@ -1,0 +1,70 @@
+<form class="date-block" [formGroup]="filterForm">
+	<div class="date-block__list">
+    <mat-form-field>
+      <input matInput
+        [matDatepicker]="fromDate"
+        placeholder="From Date"
+        formControlName="fromDate">
+      <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+      <mat-datepicker #fromDate></mat-datepicker>
+    </mat-form-field>
+  </div>
+  	<div class="date-block__list">
+    <mat-form-field>
+      <input matInput
+        [matDatepicker]="toDate"
+        placeholder="To Date"
+        formControlName="toDate">
+      <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+      <mat-datepicker #toDate></mat-datepicker>
+    </mat-form-field>
+  </div>
+   <button mat-button color="primary" class="primary" (click)="getDateRange(filterForm.value)">Submit</button>
+</form>
+<table mat-table [dataSource]="countdataSource">
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let count"> {{count.type}} </td>
+      </ng-container>
+      <ng-container matColumnDef="count">
+        <th mat-header-cell *matHeaderCellDef> Count </th>
+        <td mat-cell *matCellDef="let count"> {{count.count}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="countDisplayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: countDisplayedColumns;"></tr>
+   </table>
+   <button mat-raised-button (click)="onCreate()">
+       Create
+   </button>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 main">
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let unAvailable"> {{unAvailable.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let unAvailable"> {{unAvailable.employee.fullName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let unAvailable"> {{unAvailable.nonAvailabilityType.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> Start
+
+    </th>
+      <td mat-cell *matCellDef="let unAvailable"> {{unAvailable.startDate | date}} </td>
+
+    </ng-container>
+    <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef> End
+        </th>
+        <td mat-cell *matCellDef="let unAvailable"> {{unAvailable.endDate | date}} </td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

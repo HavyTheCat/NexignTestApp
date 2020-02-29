@@ -1,0 +1,50 @@
+<mat-dialog-content>
+<form [formGroup]="form">
+    <div class="form-group">
+        <div>
+            <mat-form-field>
+                <mat-label>Employee:</mat-label>
+                <mat-select formControlName="employee">
+                    <mat-option *ngFor="let employee of employees" [value]="employee">
+                      {{employee.fullName}}
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Type:</mat-label>
+                <mat-select formControlName="nonAvailabilityType">
+                    <mat-option *ngFor="let type of types" [value]="type">
+                    {{type.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput
+                  [matDatepicker]="startDate"
+                  placeholder="To Date"
+                  formControlName="startDate">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput
+                  [matDatepicker]="endDate"
+                  placeholder="To Date"
+                  formControlName="endDate">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+              </mat-form-field>
+        </div>
+    </div>
+  </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button [disabled]="form.invalid" class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>

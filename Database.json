@@ -1,0 +1,70 @@
+{
+    "employee":[
+        {"id":1,
+        "fullName":"Тестовый Тест Тестович"},
+        {"id":2,
+        "fullName":"Тестовый Тест Тестович Второй"},
+        {"id":3,
+        "fullName":"Тестовый Тест Тестович Третий"}
+    ],
+    "nonAvailabilityType":[
+        {"id":1,
+         "title":"Работа из дома"},
+         {"id":2,
+        "title":"Болезнь"},
+        {"id":3,
+        "title":"Командировка"}
+    ],
+    "nonAvailability":[{
+        "id":1,
+        "employee":{
+            "id":1,
+            "fullName":"Тестовый Тест Тестович"
+        },
+        "nonAvailabilityType":{
+            "id":1,
+            "title":"Работа из дома"
+        },
+        "startDate": "2020-02-10T07:22Z",
+        "endDate": "2020-02-21T07:22Z"
+    },
+    {
+        "id":2,
+        "employee":{
+            "id":2,
+            "fullName":"Тестовый Тест Тестович Второй"
+        },
+        "nonAvailabilityType":{
+            "id":2,
+            "title":"Болезнь"
+        },
+        "startDate": "2020-01-20T07:22Z",
+        "endDate": "2020-01-21T07:22Z"
+    },
+    {
+        "id":3,
+        "employee":{
+            "id":3,
+            "fullName":"Тестовый Тест Тестович Третий"
+        },
+        "nonAvailabilityType":{
+            "id":3,
+            "title":"Командировка"
+        },
+        "startDate": "2020-01-19T07:22Z",
+        "endDate": "2020-01-21T07:22Z"
+    },
+    {
+        "id":4,
+        "employee":{
+            "id":1,
+            "fullName":"Тестовый Тест Тестович"
+        },
+        "nonAvailabilityType":{
+            "id":2,
+            "title":"Болезнь"
+        },
+        "startDate": "2020-01-19T07:22Z",
+        "endDate": "2020-01-21T07:22Z"
+    }]
+}
